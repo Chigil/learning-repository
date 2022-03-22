@@ -1,3 +1,5 @@
+const testNumber = 20929103
+
 const sumNumbersNative = (number) => {
   let sum = 0;
   let digit = 0;
@@ -19,12 +21,12 @@ const sumNumbersRecursion = (number) => {
 
 const sumNumbers = (number) => {
   let sum = 0;
-  String(number).split('').forEach((el) => {
+  Array.from(String(number), (el) => {
     sum += +el;
   })
   return sum;
 }
 
-console.log(sumNumbersNative(20929103));
-console.log(sumNumbersRecursion(20929103));
-console.log(sumNumbers(20929103));
+console.log(sumNumbersNative(testNumber));
+console.log(sumNumbersRecursion(testNumber));
+console.log(sumNumbers(testNumber));

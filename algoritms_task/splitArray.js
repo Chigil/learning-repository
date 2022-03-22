@@ -1,3 +1,6 @@
+const array = [1, 2, 3, 2, 31, 2, 5, 8];
+const count = 2;
+
 const splitArrayNative = (array, count) => {
   let resultArrays = [];
   let addedArray = [];
@@ -19,8 +22,5 @@ const splitArray = (array, count) => {
   return resultArrays;
 }
 
-const result = splitArray([1, 2, 3, 2, 31, 2, 5, 8], 2);
-const resultN = splitArrayNative([1, 2, 3, 2, 31, 2, 5, 8], 2);
-
-console.log(resultN);
-console.log(result);
+console.log(splitArray(array, count));
+console.log(splitArrayNative(array, count));
