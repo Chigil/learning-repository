@@ -1,17 +1,17 @@
-const string = '20013232'
+const inputString = '20013232'
 
-const reverseStringNative = (str) => {
+const reverseStringNative = (inputString) => {
   let reversed = '';
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversed = reversed + str[i];
+  for (let i = inputString.length - 1; i >= 0; i--) {
+    reversed = reversed + inputString[i];
   }
   return reversed;
 };
 
-const reverseString = (str) => {
-  return str.split('').reverse().join('');
+const reverseString = (inputString) => {
+  return inputString.split('').reverse().join('');
 }
 
-console.log(reverseStringNative(string));
-console.log(reverseString(string));
+console.log(reverseStringNative(inputString));
+console.log(reverseString(inputString));
 
