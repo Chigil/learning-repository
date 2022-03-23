@@ -20,11 +20,7 @@ const sumNumbersRecursion = (number) => {
 }
 
 const sumNumbers = (number) => {
-  let sum = 0;
-  Array.from(String(number), (el) => {
-    sum += +el;
-  })
-  return sum;
+  return Array.from(String(number)).map((e) => parseInt(e)).reduce((a, b) => a + b)
 }
 
 console.log(sumNumbersNative(testNumber));
