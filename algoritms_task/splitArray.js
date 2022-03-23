@@ -1,28 +1,26 @@
-//method №1
-// function splitArray(array, count) {
-//   let resultArrays = [];
-//   // let currentCount = 0;
-//   let addedArray = [];
-//   for (let i = 0; i < array.length; i++) {
-//     //currentCount++;
-//     addedArray.push(array[i]);
-//     if ((i+1)%count === 0) { // currentCount
-//       resultArrays.push(addedArray)
-//       addedArray = [];
-//       //currentCount = 0;
-//     }
-//   }
-//   return addedArray.length ? [...resultArrays,addedArray] : resultArrays;
-// }
+const array = [1, 2, 3, 2, 31, 2, 5, 8];
+const count = 2;
 
-//method №2
-function splitArray(array, count) {
+const splitArrayNative = (array, count) => {
+  let resultArrays = [];
+  let addedArray = [];
+  for (let i = 0; i < array.length; i++) {
+    addedArray.push(array[i]);
+    if ((i + 1) % count === 0) {
+      resultArrays.push(addedArray)
+      addedArray = [];
+    }
+  }
+  return addedArray.length ? [...resultArrays, addedArray] : resultArrays;
+}
+
+const splitArray = (array, count) => {
   const resultArrays = []
-  for (let i = 0; i < array.length; i+=count) {
-    resultArrays.push(array.slice(i, i+count));
+  for (let i = 0; i < array.length; i += count) {
+    resultArrays.push(array.slice(i, i + count));
   }
   return resultArrays;
 }
 
-const result = splitArray([1, 2, 3, 2, 31, 2, 5, 8], 1);
-console.log(result);
+console.log(splitArray(array, count));
+console.log(splitArrayNative(array, count));

@@ -1,16 +1,17 @@
-// method №1
-// const reverseString = (str) => {
-//   const reversed = [];
-//   for (let i = str.length - 1; i >= 0; --i) {
-//     reversed.push(str[i]);
-//   }
-//   return reversed.join("");
-// };
+const inputString = '20013232'
 
+const reverseStringNative = (inputString) => {
+  let reversed = '';
+  for (let i = inputString.length - 1; i >= 0; i--) {
+    reversed = reversed + inputString[i];
+  }
+  return reversed;
+};
 
-// method №2
-const reverseString = (str) => str.split("").reverse().join("");
+const reverseString = (inputString) => {
+  return inputString.split('').reverse().join('');
+}
 
-const str = reverseString("20012");
-console.log(str);
+console.log(reverseStringNative(inputString));
+console.log(reverseString(inputString));
 
