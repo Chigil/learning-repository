@@ -13,9 +13,10 @@ class LinkedList {
 
   add(value) {
     let node = new Node(value);
-
-    if (this.length === 0) {
+    this.length++;
+    if (!this.head) {
       this.head = node;
+      return;
 
     } else {
       let current = this.head;
@@ -23,46 +24,43 @@ class LinkedList {
       while (current.next) {
         current = current.next;
       }
-
       current.next = new Node(value);
     }
-
-    this.length++;
   }
 
-  get(position) {
-    if (position < 0 || position > this.length) {
-      return 'Incorrect value of position';
+  get(index) {
+    if (index < 0 || index >= this.length) {
+      return 'Index get out bounces';
     }
 
     let current = this.head;
-    let index = 0;
+    let counter = 0;
 
-    while (index < position) {
+    while (counter < index) {
       current = current.next;
-      index++;
+      counter++;
     }
 
     return current.value;
   }
 
-  delete(position) {
-    if (position < 0 || position > this.length) {
-      return 'Incorrect value of position';
+  delete(index) {
+    if (index < 0 || index >= this.length) {
+      return 'Incorrect value of index';
     }
 
     let current = this.head;
 
-    if (position === 0) {
+    if (index === 0) {
       this.head = current.next;
     } else {
       let prev = null;
-      let index = 0;
+      let counter = 0;
 
-      while (index < position) {
+      while (counter < index) {
         prev = current;
         current = current.next;
-        index++;
+        counter++;
       }
 
       prev.next = current.next;
@@ -90,6 +88,6 @@ list.add(false);
 list.add('1wdwa5');
 list.add([15,23,23]);
 console.log(list.get(1));
-list.delete(1);
+console.log(list.delete(2));
 console.log(list.getLength());
 list.print();
