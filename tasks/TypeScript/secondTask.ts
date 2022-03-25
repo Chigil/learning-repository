@@ -24,13 +24,16 @@ abstract class Resource<T extends Payload> {
     protected constructor(name: string, data: Data<T>[]) {
         this.name = name;
         this.data = data;
-    }
-    public getName(): string {
-        return this.name
-    }
 
-    public getData(): Data<T>[] {
-        return this.data
+    }
+    public getPayloadData(topic: string) {
+        const payloads = this.data.filter(data => data.topic === topic)[0]?.payloads
+        if (payloads) {
+            return [`Resource: ${this.name} Payload: ${payloads.map(item => JSON.stringify(item))}`];
+        }
+        if (!payloads) {
+            return []
+        }
     }
 }
 
@@ -55,17 +58,9 @@ class ResourceApplication {
     }
 
     public printData(topic: string) {
-
         const findingResources = this.resources.map(resource => {
-            const items = resource.getData().filter(data => data.topic === topic)[0]?.payloads
-            if (items) {
-                return [`Resource: ${resource.getName()} Payload: ${items.map(item => JSON.stringify(item))}`]
-            }
-            if (!items) {
-                return []
-            }
-        }).reduce((acc, val) => acc.concat(val), [])
-
+            return resource.getPayloadData(topic);
+        }).reduce((acc, val) => acc.concat(val), []);
         const result = `Topic: ${topic} \n` + findingResources.join('\n');
         console.log(result);
     }
