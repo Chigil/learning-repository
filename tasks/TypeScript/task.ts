@@ -1,23 +1,3 @@
-// class Workers {
-//   readonly name: string
-//   readonly age: number
-//   position: string
-//   salary: number
-//
-//   constructor(name: string, age: number, position: string, salary: number) {
-//     this.name = name;
-//     this.age = age;
-//     this.position = position;
-//     this.salary = salary;
-//   }
-//
-// }
-//
-// const worker1 = new Workers('Vasya', 20, 'developer', 800 );
-// const worker2 =  new Workers('Ivan', 20, 'designer', 600 );
-//
-// const salarySum = worker1.salary + worker2.salary;
-// console.log(salarySum);
 abstract class Employee {
   private readonly name: string;
   private readonly age: number;
