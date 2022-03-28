@@ -73,7 +73,7 @@ const site = new InternetResource('fimlov.net',
                         }
                     ]
             }
-    ])
+    ]);
 const book = new Book('just a book',
     [
             {
@@ -93,7 +93,6 @@ const book = new Book('just a book',
                     ]
             }
     ]);
-
 const book2 = new Book('book on sky',
     [
             {
