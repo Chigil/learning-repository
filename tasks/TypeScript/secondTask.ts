@@ -34,7 +34,6 @@ abstract class Resource<T extends Payload> {
     }
 }
 
-
 class InternetResource extends Resource<InternetPayload> {
     constructor(name: string, data: Data<InternetPayload>[]) {
         super(name, data);
