@@ -16,7 +16,6 @@ interface BookPayload extends Payload {
     line: number;
 }
 
-
 abstract class Resource<T extends Payload> {
     protected name: string;
     protected data: Data<T>[];
@@ -26,13 +25,14 @@ abstract class Resource<T extends Payload> {
         this.data = data;
 
     }
+
     public getPayloadData(topic: string) {
         const payloads = this.data.filter(data => data.topic === topic)[0]?.payloads
         if (payloads) {
             return [`Resource: ${this.name} Payload: ${payloads.map(item => JSON.stringify(item))}`];
         }
         if (!payloads) {
-            return []
+            return [];
         }
     }
 }
@@ -76,5 +76,3 @@ const book2 = new Book('book on sky', [{topic: 'sky', payloads: [{page: 1, line:
 
 const app = new ResourceApplication([book, book2, site]);
 app.printData('films');
-
-// Обратиться к приложение и получить данные по опредленной теме с указанием источника
